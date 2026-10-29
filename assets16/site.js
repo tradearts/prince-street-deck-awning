@@ -45,6 +45,9 @@
   // slat topper: vertical slats with see-through gaps (alpha)
   var slatTex=canvasTex(512,128,function(x,w,h){var r=rng(3);x.clearRect(0,0,w,h);for(var i=0;i<16;i++){var c=[176+((r()-0.5)*30)|0,142+((r()-0.5)*24)|0,92+((r()-0.5)*20)|0];x.fillStyle='rgb('+c.join(',')+')';x.fillRect(i*w/16,0,w/16*0.62,h)}
     x.fillStyle='rgb(160,128,80)';x.fillRect(0,0,w,10);x.fillRect(0,h-10,w,10);x.fillRect(0,h/2-5,w,10)});
+  // square lattice topper (alpha): 45 x 6 battens at ~75 centres, square to the frame (north fence photos)
+  var latTex=canvasTex(256,256,function(x,w,h){x.clearRect(0,0,w,h);var r=rng(9);for(var i=0;i<8;i++){var c='rgb('+(182+((r()-0.5)*24|0))+','+(150+((r()-0.5)*20|0))+',100)';x.fillStyle=c;x.fillRect(i*w/8,0,w/8*0.42,h);x.fillRect(0,i*h/8,w,h/8*0.42)}
+    x.fillStyle='rgb(165,132,84)';x.fillRect(0,0,w,8);x.fillRect(0,h-8,w,8)});
   // bangalow trunk: grey with leaf-scar rings
   var ringTex=canvasTex(64,256,function(x,w,h){x.fillStyle='#8f8e88';x.fillRect(0,0,w,h);var r=rng(5);for(var y=0;y<h;y+=10+r()*6){x.fillStyle='rgba(70,68,62,0.55)';x.fillRect(0,y,w,2);x.fillStyle='rgba(200,198,190,0.25)';x.fillRect(0,y+3,w,3)}
     for(var k=0;k<300;k++){x.fillStyle='rgba(60,60,55,'+r()*0.15+')';x.fillRect(r()*w,r()*h,1,2)}});
@@ -78,6 +81,7 @@
     var newFence=std({map:palingTex([196,158,104],34,'#6b5233'),color:0xffffff,roughness:0.9});newFence.userData.tile=1.0;
     var oldFence=std({map:palingTex([150,146,138],26,'#55524c'),color:0xffffff,roughness:0.95});oldFence.userData.tile=1.0;
     var topper=std({map:slatTex,alphaTest:0.5,side:THREE.DoubleSide,roughness:0.9});topper.userData.tile=1.0;topper.userData.v=0.6;
+    var lattice=std({map:latTex,alphaTest:0.5,side:THREE.DoubleSide,roughness:0.9});lattice.userData.tile=0.6;lattice.userData.v=0.6;
     var steelDark=std({color:0x30363a,roughness:0.55,metalness:0.4}), ss=std({color:0xd6dadc,roughness:0.28,metalness:0.85}), galv=std({color:0xc3c9cc,roughness:0.35,metalness:0.75});
     var ikea=std({color:0x5d6469,roughness:0.6,metalness:0.2}), glass=std({color:0x1f2f3a,roughness:0.08,metalness:0.4}), door=std({color:0x5b3a22,roughness:0.55});
     var white=std({color:0xf2f2ef,roughness:0.4}), hardwood=std({map:pineTex([150,104,66],29),roughness:0.55});hardwood.userData.tile=1.2;hardwood.userData.v=0.3;hardwood.userData.wood=1;
@@ -86,7 +90,10 @@
       footing:conc,slab:conc,gravel:conc,paver:sand,chain:std({color:0xa8643a,roughness:0.35,metalness:0.8}),creek:pbr('gravel_stones_diff','gravel_stones_nor',0.6,0xd9c8a8,0.9),blue:gravel,lane:lane,ply:ply,rock:sand,rock2:sand,
       fence:newFence,fencetop:topper,gatetop:topper,pgate:newFence,fencepost:pineDark,gate:newFence,fencegrey:oldFence,fencegreypost:std({color:0x7c7a74,roughness:0.95}),
       anchor:galv,steel:steelDark,gutter:galv,planter:galv,firepit:steelDark,ikea:ikea,ikdoor:std({color:0x4a5054,roughness:0.6}),ikss:ss,ikburn:std({color:0x15181a,roughness:0.6}),ss:ss,ssb:ss,ssleg:ss,
-      glass:glass,appdoor:glass,door:door,gdoor:std({color:0x8d7748,roughness:0.7}),floor:pine,appl:white,table:hardwood,tleg:steelDark,boundary:std({color:0xc2500f,roughness:0.8})};
+      glass:glass,appdoor:glass,door:door,gdoor:std({color:0x8d7748,roughness:0.7}),floor:pine,appl:white,table:hardwood,tleg:steelDark,boundary:std({color:0xc2500f,roughness:0.8}),lattice:lattice,
+      szinc:std({color:0xe8eef0,roughness:0.42,metalness:0.3,side:THREE.DoubleSide}),sskin:std({color:0xcfd4d3,roughness:0.45,metalness:0.3,side:THREE.DoubleSide}),ssoff:std({color:0xf4f4f1,roughness:0.5,side:THREE.DoubleSide}),
+      sframe:std({color:0x6a4426,roughness:0.6,side:THREE.DoubleSide}),sglass:std({color:0x1a2228,roughness:0.1,metalness:0.4,side:THREE.DoubleSide}),sflash:std({color:0xbfc5c7,roughness:0.4,metalness:0.6,side:THREE.DoubleSide}),
+      trailer:std({color:0xb5babc,roughness:0.5,metalness:0.35,side:THREE.DoubleSide}),sblack:std({color:0x1c1d1e,roughness:0.6}),sskirt:pineDark,gframe:pineDark};
   }
   function matFor(g){if(MAT[g])return MAT[g];var s=(window.__S||{})[g];if(plain[g])return plain[g];var o={color:s?s[0]:0x999999,roughness:0.8};if(s&&s[1]!==undefined&&s[1]<1){o.transparent=true;o.opacity=s[1]}return plain[g]=std(o)}
 
@@ -100,7 +107,7 @@
   /* ---------- groups / picking ---------- */
   var FIT={slatrail:1,firepit:1,ikea:1,ikdoor:1,ikss:1,ikburn:1,ssb:1,ssleg:1,slat2:1,fc:1,fcframe:1,ply:1,ktop:1,ss:1,burner:1,appl:1,appdoor:1,table:1,tleg:1}, PER={person:1,personh:1};
   var GRD={blue:1,lane:1};
-  var CTX={pgate:1,gatetop:1,fencegrey:1,fencegreypost:1,gate:1,boundary:1,planter:1,rock2:1,swall:1,sroof:1,glass:1,door:1,steel:1,floor:1,gwall:1,gpoly:1,groof:1,gdoor:1,slab:1,gutter:1,fence:1,fencetop:1};
+  var CTX={lattice:1,szinc:1,sskin:1,ssoff:1,sframe:1,sglass:1,sflash:1,trailer:1,sblack:1,sskirt:1,gframe:1,pgate:1,gatetop:1,fencegrey:1,fencegreypost:1,gate:1,boundary:1,planter:1,rock2:1,swall:1,sroof:1,glass:1,door:1,steel:1,floor:1,gwall:1,gpoly:1,groof:1,gdoor:1,slab:1,gutter:1,fence:1,fencetop:1};
   var groups={sheet:[],deck:[],ctx:[],ground:[],slat:[],fit:[],person:[],plant:[]}, pickable=[];
   var NOSHADOW={sheet:1,gpoly:1,boundary:1,blue:1,lane:1};
   function add(o,g,kind){scene.add(o); o.userData.g=g;
