@@ -3,6 +3,7 @@
 A treated-pine deck (4.8 × 4.0 m) with a 5° skillion awning between a trailer studio and a shed, plus the outdoor kitchen, laundry and fence-end screen. This is a concept for a carpenter's feedback before drawings and ordering. **The structural numbers are preliminary checks, not an engineer's design.**
 
 - **3D model:** open https://tradearts.github.io/prince-street-deck-awning/ (the `index.html` in this repo). Drag to orbit, use the view buttons, and tap any part to see its size, quantity, fixing notes and where it comes from.
+- **The page** runs top to bottom: 3D model, engineering notes, build plans (framing plan, roof framing plan, section, screen elevation), materials, then the landscape.
 - **Spec and parts list:** [SPEC.md](SPEC.md)
 - **Images:** the `images/` folder
 
