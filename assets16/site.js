@@ -85,7 +85,7 @@
     var steelDark=std({color:0x30363a,roughness:0.55,metalness:0.4}), ss=std({color:0xd6dadc,roughness:0.28,metalness:0.85}), galv=std({color:0xc3c9cc,roughness:0.35,metalness:0.75});
     var ikea=std({color:0x5d6469,roughness:0.6,metalness:0.2}), glass=std({color:0x1f2f3a,roughness:0.08,metalness:0.4}), door=std({color:0x5b3a22,roughness:0.55});
     var white=std({color:0xf2f2ef,roughness:0.4}), hardwood=std({map:pineTex([150,104,66],29),roughness:0.55});hardwood.userData.tile=1.2;hardwood.userData.v=0.3;hardwood.userData.wood=1;
-    MAT={post:pineDark,stump:pineDark,fascia:pine,brace:pine,bearer:pineDark,joist:pineDark,deck:deck,stepdeck:deck,B1:pineDark,B2:pineDark,B3:pineDark,rafter:pine,purlin:pine,slat:pine,slat2:pine,slatrail:pineDark,fcframe:pine,stepframe:pine,
+    MAT={post:hardwood,backfill:std({color:0x6b5a44,roughness:1,transparent:true,opacity:0.35,depthWrite:false}),stump:pineDark,fascia:pine,brace:pine,bearer:pineDark,joist:pineDark,deck:deck,stepdeck:deck,B1:pineDark,B2:pineDark,B3:pineDark,rafter:pine,purlin:pine,slat:pine,slat2:pine,slatrail:pineDark,fcframe:pine,stepframe:pine,
       sheet:poly,zinc:corr,swall:corr,sroof:std({color:0xf1f2f0,roughness:0.5,metalness:0.2}),groof:corr,gwall:corrG,gpoly:std({color:0xdce8ea,transparent:true,opacity:0.5,roughness:0.3}),
       footing:conc,slab:conc,gravel:conc,paver:sand,chain:std({color:0xa8643a,roughness:0.35,metalness:0.8}),creek:pbr('gravel_stones_diff','gravel_stones_nor',0.6,0xd9c8a8,0.9),blue:gravel,lane:lane,ply:ply,rock:sand,rock2:sand,
       fence:newFence,fencetop:topper,gatetop:topper,pgate:newFence,fencepost:pineDark,gate:newFence,fencegrey:oldFence,fencegreypost:std({color:0x7c7a74,roughness:0.95}),
