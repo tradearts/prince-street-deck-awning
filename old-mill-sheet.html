@@ -27,91 +27,95 @@ li{margin:.4mm 0}
 svg.plan text{font-family:inherit}
 .tick{display:inline-block;width:3mm;height:3mm;border:0.8pt solid #111;margin-right:1.4mm;vertical-align:-0.5mm}
 @media screen{body{background:#ddd}.page{background:#fff;padding:11mm 12mm;margin:6mm auto;width:210mm;min-height:297mm;box-shadow:0 1px 6px rgba(0,0,0,.2)}.qr{right:12mm;top:11mm}}
-</style></head><body>
+</style><style>
+.dw svg{width:100%;height:auto;display:block;background:var(--sheet);border:1px solid var(--rule)}
+.dw .outline{fill:none;stroke:var(--ink);stroke-width:1.6;stroke-dasharray:8 4}
+.dw .ghost{fill:none;stroke:var(--ink2);stroke-width:1;stroke-dasharray:4 4}
+.dw .mem{fill:color-mix(in srgb,var(--mark) 10%,transparent);stroke:var(--ink);stroke-width:.8}
+.dw .mem2{fill:color-mix(in srgb,var(--ink) 22%,transparent);stroke:var(--ink);stroke-width:.8}
+.dw .mem3{fill:none;stroke:var(--ink2);stroke-width:.7}
+.dw .cut{fill:var(--ink);stroke:var(--ink);stroke-width:.6}
+.dw .post{fill:var(--ink);stroke:none}
+.dw .postp{fill:none;stroke:var(--ink);stroke-width:1.1}
+.dw .ftg{fill:none;stroke:var(--ink2);stroke-width:1;stroke-dasharray:3 3}
+.dw .ftgs{fill:color-mix(in srgb,var(--ink2) 25%,transparent);stroke:var(--ink2);stroke-width:.8}
+.dw .zinc{fill:color-mix(in srgb,var(--ink2) 18%,transparent);stroke:var(--ink2);stroke-width:.6}
+.dw .poly{fill:color-mix(in srgb,#5aa0c8 14%,transparent);stroke:var(--ink2);stroke-width:.6}
+.dw .sheetl{fill:#5aa0c8;stroke:#5aa0c8;stroke-width:.6}
+.dw .slat{fill:color-mix(in srgb,var(--mark) 22%,transparent);stroke:var(--ink);stroke-width:.5}
+.dw .ground{stroke:var(--ink);stroke-width:1.4}
+.dw .ctxl{stroke:var(--ink2);stroke-width:1;stroke-dasharray:6 4;fill:none}
+.dw .ctxfill{fill:color-mix(in srgb,var(--ink2) 12%,transparent);stroke:var(--ink2);stroke-width:.8}
+.dw .person{fill:color-mix(in srgb,#2f6f8f 25%,transparent);stroke:#2f6f8f;stroke-width:.8}
+.dw .dim,.dw .ext,.dw .tk{stroke:var(--mark);stroke-width:.8}
+.dw .ext{stroke-width:.5}
+.dw text{font-family:var(--mono);fill:var(--ink)}
+.dw .dl{font-size:12px;fill:var(--mark)}
+.dw .note{font-size:12px;fill:var(--ink)}
+.dw .ctx{font-size:12px;letter-spacing:.12em;fill:var(--ink2)}
+.dw .ctxs{font-size:11px;fill:var(--ink2)}
+.dw figure{margin:0;display:flex;flex-direction:column;gap:6px}
+.dw figcaption{font:500 12px/1.4 var(--mono);text-transform:uppercase;letter-spacing:.07em;color:var(--ink2)}
+
+@media(max-width:800px){.dw{grid-template-columns:1fr}}
+</style><style>:root{--sheet:#fff;--ink:#111;--ink2:#555;--rule:#bbb;--mark:#c2410c;--mono:ui-monospace,Menlo,monospace}.dw svg{border:none}.dw .note{font-size:15px}.dw .dl{font-size:15px}.dw .ctx{font-size:13px}</style></head><body>
 
 <!-- ======================= PAGE 1 ======================= -->
 <section class="page">
 <div class="qr"><svg width="21mm" height="21mm" version="1.1" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg"><path d="M0.6,0.6H1.2V1.2H0.6zM1.2,0.6H1.8V1.2H1.2zM1.8,0.6H2.4V1.2H1.8zM2.4,0.6H3V1.2H2.4zM3,0.6H3.6V1.2H3zM3.6,0.6H4.2V1.2H3.6zM4.2,0.6H4.8V1.2H4.2zM6,0.6H6.6V1.2H6zM6.6,0.6H7.2V1.2H6.6zM7.8,0.6H8.4V1.2H7.8zM8.4,0.6H9V1.2H8.4zM10.2,0.6H10.8V1.2H10.2zM10.8,0.6H11.4V1.2H10.8zM11.4,0.6H12V1.2H11.4zM12,0.6H12.6V1.2H12zM13.8,0.6H14.4V1.2H13.8zM14.4,0.6H15V1.2H14.4zM16.2,0.6H16.8V1.2H16.2zM16.8,0.6H17.4V1.2H16.8zM17.4,0.6H18V1.2H17.4zM18,0.6H18.6V1.2H18zM18.6,0.6H19.2V1.2H18.6zM19.2,0.6H19.8V1.2H19.2zM19.8,0.6H20.4V1.2H19.8zM0.6,1.2H1.2V1.8H0.6zM4.2,1.2H4.8V1.8H4.2zM6,1.2H6.6V1.8H6zM6.6,1.2H7.2V1.8H6.6zM7.2,1.2H7.8V1.8H7.2zM9,1.2H9.6V1.8H9zM9.6,1.2H10.2V1.8H9.6zM10.8,1.2H11.4V1.8H10.8zM12.6,1.2H13.2V1.8H12.6zM15,1.2H15.6V1.8H15zM16.2,1.2H16.8V1.8H16.2zM19.8,1.2H20.4V1.8H19.8zM0.6,1.8H1.2V2.4H0.6zM1.8,1.8H2.4V2.4H1.8zM2.4,1.8H3V2.4H2.4zM3,1.8H3.6V2.4H3zM4.2,1.8H4.8V2.4H4.2zM5.4,1.8H6V2.4H5.4zM6.6,1.8H7.2V2.4H6.6zM12,1.8H12.6V2.4H12zM13.2,1.8H13.8V2.4H13.2zM13.8,1.8H14.4V2.4H13.8zM16.2,1.8H16.8V2.4H16.2zM17.4,1.8H18V2.4H17.4zM18,1.8H18.6V2.4H18zM18.6,1.8H19.2V2.4H18.6zM19.8,1.8H20.4V2.4H19.8zM0.6,2.4H1.2V3H0.6zM1.8,2.4H2.4V3H1.8zM2.4,2.4H3V3H2.4zM3,2.4H3.6V3H3zM4.2,2.4H4.8V3H4.2zM5.4,2.4H6V3H5.4zM6,2.4H6.6V3H6zM6.6,2.4H7.2V3H6.6zM7.8,2.4H8.4V3H7.8zM9.6,2.4H10.2V3H9.6zM10.8,2.4H11.4V3H10.8zM15,2.4H15.6V3H15zM16.2,2.4H16.8V3H16.2zM17.4,2.4H18V3H17.4zM18,2.4H18.6V3H18zM18.6,2.4H19.2V3H18.6zM19.8,2.4H20.4V3H19.8zM0.6,3H1.2V3.6H0.6zM1.8,3H2.4V3.6H1.8zM2.4,3H3V3.6H2.4zM3,3H3.6V3.6H3zM4.2,3H4.8V3.6H4.2zM5.4,3H6V3.6H5.4zM6,3H6.6V3.6H6zM6.6,3H7.2V3.6H6.6zM7.2,3H7.8V3.6H7.2zM8.4,3H9V3.6H8.4zM10.2,3H10.8V3.6H10.2zM10.8,3H11.4V3.6H10.8zM12,3H12.6V3.6H12zM13.2,3H13.8V3.6H13.2zM14.4,3H15V3.6H14.4zM16.2,3H16.8V3.6H16.2zM17.4,3H18V3.6H17.4zM18,3H18.6V3.6H18zM18.6,3H19.2V3.6H18.6zM19.8,3H20.4V3.6H19.8zM0.6,3.6H1.2V4.2H0.6zM4.2,3.6H4.8V4.2H4.2zM5.4,3.6H6V4.2H5.4zM7.8,3.6H8.4V4.2H7.8zM9.6,3.6H10.2V4.2H9.6zM10.2,3.6H10.8V4.2H10.2zM10.8,3.6H11.4V4.2H10.8zM12.6,3.6H13.2V4.2H12.6zM16.2,3.6H16.8V4.2H16.2zM19.8,3.6H20.4V4.2H19.8zM0.6,4.2H1.2V4.8H0.6zM1.2,4.2H1.8V4.8H1.2zM1.8,4.2H2.4V4.8H1.8zM2.4,4.2H3V4.8H2.4zM3,4.2H3.6V4.8H3zM3.6,4.2H4.2V4.8H3.6zM4.2,4.2H4.8V4.8H4.2zM5.4,4.2H6V4.8H5.4zM6.6,4.2H7.2V4.8H6.6zM7.8,4.2H8.4V4.8H7.8zM9,4.2H9.6V4.8H9zM10.2,4.2H10.8V4.8H10.2zM11.4,4.2H12V4.8H11.4zM12.6,4.2H13.2V4.8H12.6zM13.8,4.2H14.4V4.8H13.8zM15,4.2H15.6V4.8H15zM16.2,4.2H16.8V4.8H16.2zM16.8,4.2H17.4V4.8H16.8zM17.4,4.2H18V4.8H17.4zM18,4.2H18.6V4.8H18zM18.6,4.2H19.2V4.8H18.6zM19.2,4.2H19.8V4.8H19.2zM19.8,4.2H20.4V4.8H19.8zM5.4,4.8H6V5.4H5.4zM6,4.8H6.6V5.4H6zM6.6,4.8H7.2V5.4H6.6zM7.2,4.8H7.8V5.4H7.2zM9,4.8H9.6V5.4H9zM9.6,4.8H10.2V5.4H9.6zM10.2,4.8H10.8V5.4H10.2zM11.4,4.8H12V5.4H11.4zM12,4.8H12.6V5.4H12zM12.6,4.8H13.2V5.4H12.6zM13.2,4.8H13.8V5.4H13.2zM14.4,4.8H15V5.4H14.4zM15,4.8H15.6V5.4H15zM0.6,5.4H1.2V6H0.6zM1.8,5.4H2.4V6H1.8zM2.4,5.4H3V6H2.4zM3,5.4H3.6V6H3zM3.6,5.4H4.2V6H3.6zM4.2,5.4H4.8V6H4.2zM6,5.4H6.6V6H6zM6.6,5.4H7.2V6H6.6zM8.4,5.4H9V6H8.4zM9,5.4H9.6V6H9zM10.2,5.4H10.8V6H10.2zM10.8,5.4H11.4V6H10.8zM12.6,5.4H13.2V6H12.6zM13.8,5.4H14.4V6H13.8zM16.2,5.4H16.8V6H16.2zM16.8,5.4H17.4V6H16.8zM17.4,5.4H18V6H17.4zM18,5.4H18.6V6H18zM18.6,5.4H19.2V6H18.6zM0.6,6H1.2V6.6H0.6zM1.2,6H1.8V6.6H1.2zM3,6H3.6V6.6H3zM3.6,6H4.2V6.6H3.6zM6.6,6H7.2V6.6H6.6zM8.4,6H9V6.6H8.4zM10.2,6H10.8V6.6H10.2zM12,6H12.6V6.6H12zM12.6,6H13.2V6.6H12.6zM14.4,6H15V6.6H14.4zM16.2,6H16.8V6.6H16.2zM16.8,6H17.4V6.6H16.8zM18,6H18.6V6.6H18zM18.6,6H19.2V6.6H18.6zM19.8,6H20.4V6.6H19.8zM1.8,6.6H2.4V7.2H1.8zM4.2,6.6H4.8V7.2H4.2zM6,6.6H6.6V7.2H6zM8.4,6.6H9V7.2H8.4zM9,6.6H9.6V7.2H9zM9.6,6.6H10.2V7.2H9.6zM11.4,6.6H12V7.2H11.4zM13.2,6.6H13.8V7.2H13.2zM13.8,6.6H14.4V7.2H13.8zM15,6.6H15.6V7.2H15zM15.6,6.6H16.2V7.2H15.6zM17.4,6.6H18V7.2H17.4zM18.6,6.6H19.2V7.2H18.6zM0.6,7.2H1.2V7.8H0.6zM1.8,7.2H2.4V7.8H1.8zM3,7.2H3.6V7.8H3zM4.8,7.2H5.4V7.8H4.8zM7.2,7.2H7.8V7.8H7.2zM8.4,7.2H9V7.8H8.4zM9.6,7.2H10.2V7.8H9.6zM11.4,7.2H12V7.8H11.4zM12.6,7.2H13.2V7.8H12.6zM13.2,7.2H13.8V7.8H13.2zM13.8,7.2H14.4V7.8H13.8zM14.4,7.2H15V7.8H14.4zM15.6,7.2H16.2V7.8H15.6zM17.4,7.2H18V7.8H17.4zM18,7.2H18.6V7.8H18zM18.6,7.2H19.2V7.8H18.6zM19.2,7.2H19.8V7.8H19.2zM0.6,7.8H1.2V8.4H0.6zM1.2,7.8H1.8V8.4H1.2zM2.4,7.8H3V8.4H2.4zM3,7.8H3.6V8.4H3zM3.6,7.8H4.2V8.4H3.6zM4.2,7.8H4.8V8.4H4.2zM7.2,7.8H7.8V8.4H7.2zM9,7.8H9.6V8.4H9zM9.6,7.8H10.2V8.4H9.6zM10.8,7.8H11.4V8.4H10.8zM11.4,7.8H12V8.4H11.4zM13.8,7.8H14.4V8.4H13.8zM14.4,7.8H15V8.4H14.4zM15,7.8H15.6V8.4H15zM15.6,7.8H16.2V8.4H15.6zM16.8,7.8H17.4V8.4H16.8zM17.4,7.8H18V8.4H17.4zM18,7.8H18.6V8.4H18zM19.2,7.8H19.8V8.4H19.2zM1.2,8.4H1.8V9H1.2zM1.8,8.4H2.4V9H1.8zM2.4,8.4H3V9H2.4zM3,8.4H3.6V9H3zM7.8,8.4H8.4V9H7.8zM10.2,8.4H10.8V9H10.2zM12,8.4H12.6V9H12zM12.6,8.4H13.2V9H12.6zM13.2,8.4H13.8V9H13.2zM14.4,8.4H15V9H14.4zM15.6,8.4H16.2V9H15.6zM16.2,8.4H16.8V9H16.2zM18,8.4H18.6V9H18zM19.2,8.4H19.8V9H19.2zM19.8,8.4H20.4V9H19.8zM0.6,9H1.2V9.6H0.6zM3.6,9H4.2V9.6H3.6zM4.2,9H4.8V9.6H4.2zM5.4,9H6V9.6H5.4zM7.2,9H7.8V9.6H7.2zM7.8,9H8.4V9.6H7.8zM9,9H9.6V9.6H9zM9.6,9H10.2V9.6H9.6zM10.8,9H11.4V9.6H10.8zM13.2,9H13.8V9.6H13.2zM15.6,9H16.2V9.6H15.6zM16.2,9H16.8V9.6H16.2zM18,9H18.6V9.6H18zM18.6,9H19.2V9.6H18.6zM19.2,9H19.8V9.6H19.2zM3,9.6H3.6V10.2H3zM5.4,9.6H6V10.2H5.4zM6.6,9.6H7.2V10.2H6.6zM7.2,9.6H7.8V10.2H7.2zM7.8,9.6H8.4V10.2H7.8zM9.6,9.6H10.2V10.2H9.6zM10.2,9.6H10.8V10.2H10.2zM12,9.6H12.6V10.2H12zM12.6,9.6H13.2V10.2H12.6zM13.2,9.6H13.8V10.2H13.2zM13.8,9.6H14.4V10.2H13.8zM15.6,9.6H16.2V10.2H15.6zM16.2,9.6H16.8V10.2H16.2zM18,9.6H18.6V10.2H18zM18.6,9.6H19.2V10.2H18.6zM1.8,10.2H2.4V10.8H1.8zM3.6,10.2H4.2V10.8H3.6zM4.2,10.2H4.8V10.8H4.2zM4.8,10.2H5.4V10.8H4.8zM6,10.2H6.6V10.8H6zM7.2,10.2H7.8V10.8H7.2zM7.8,10.2H8.4V10.8H7.8zM9,10.2H9.6V10.8H9zM9.6,10.2H10.2V10.8H9.6zM10.2,10.2H10.8V10.8H10.2zM10.8,10.2H11.4V10.8H10.8zM12,10.2H12.6V10.8H12zM12.6,10.2H13.2V10.8H12.6zM13.8,10.2H14.4V10.8H13.8zM15,10.2H15.6V10.8H15zM15.6,10.2H16.2V10.8H15.6zM16.8,10.2H17.4V10.8H16.8zM17.4,10.2H18V10.8H17.4zM18,10.2H18.6V10.8H18zM19.8,10.2H20.4V10.8H19.8zM2.4,10.8H3V11.4H2.4zM3,10.8H3.6V11.4H3zM3.6,10.8H4.2V11.4H3.6zM6,10.8H6.6V11.4H6zM6.6,10.8H7.2V11.4H6.6zM7.8,10.8H8.4V11.4H7.8zM8.4,10.8H9V11.4H8.4zM9,10.8H9.6V11.4H9zM10.2,10.8H10.8V11.4H10.2zM11.4,10.8H12V11.4H11.4zM12,10.8H12.6V11.4H12zM12.6,10.8H13.2V11.4H12.6zM13.2,10.8H13.8V11.4H13.2zM14.4,10.8H15V11.4H14.4zM15,10.8H15.6V11.4H15zM15.6,10.8H16.2V11.4H15.6zM16.2,10.8H16.8V11.4H16.2zM16.8,10.8H17.4V11.4H16.8zM18,10.8H18.6V11.4H18zM18.6,10.8H19.2V11.4H18.6zM19.8,10.8H20.4V11.4H19.8zM1.8,11.4H2.4V12H1.8zM2.4,11.4H3V12H2.4zM3.6,11.4H4.2V12H3.6zM4.2,11.4H4.8V12H4.2zM4.8,11.4H5.4V12H4.8zM7.8,11.4H8.4V12H7.8zM9.6,11.4H10.2V12H9.6zM10.2,11.4H10.8V12H10.2zM10.8,11.4H11.4V12H10.8zM11.4,11.4H12V12H11.4zM13.2,11.4H13.8V12H13.2zM15.6,11.4H16.2V12H15.6zM16.8,11.4H17.4V12H16.8zM17.4,11.4H18V12H17.4zM18.6,11.4H19.2V12H18.6zM19.2,11.4H19.8V12H19.2zM0.6,12H1.2V12.6H0.6zM1.2,12H1.8V12.6H1.2zM3.6,12H4.2V12.6H3.6zM4.8,12H5.4V12.6H4.8zM9,12H9.6V12.6H9zM10.2,12H10.8V12.6H10.2zM11.4,12H12V12.6H11.4zM12,12H12.6V12.6H12zM13.2,12H13.8V12.6H13.2zM13.8,12H14.4V12.6H13.8zM14.4,12H15V12.6H14.4zM16.8,12H17.4V12.6H16.8zM17.4,12H18V12.6H17.4zM18,12H18.6V12.6H18zM18.6,12H19.2V12.6H18.6zM19.2,12H19.8V12.6H19.2zM19.8,12H20.4V12.6H19.8zM0.6,12.6H1.2V13.2H0.6zM1.2,12.6H1.8V13.2H1.2zM2.4,12.6H3V13.2H2.4zM3,12.6H3.6V13.2H3zM3.6,12.6H4.2V13.2H3.6zM4.2,12.6H4.8V13.2H4.2zM4.8,12.6H5.4V13.2H4.8zM5.4,12.6H6V13.2H5.4zM6,12.6H6.6V13.2H6zM7.2,12.6H7.8V13.2H7.2zM7.8,12.6H8.4V13.2H7.8zM9,12.6H9.6V13.2H9zM10.2,12.6H10.8V13.2H10.2zM10.8,12.6H11.4V13.2H10.8zM11.4,12.6H12V13.2H11.4zM13.8,12.6H14.4V13.2H13.8zM15,12.6H15.6V13.2H15zM16.8,12.6H17.4V13.2H16.8zM17.4,12.6H18V13.2H17.4zM18,12.6H18.6V13.2H18zM0.6,13.2H1.2V13.8H0.6zM3,13.2H3.6V13.8H3zM6.6,13.2H7.2V13.8H6.6zM7.2,13.2H7.8V13.8H7.2zM8.4,13.2H9V13.8H8.4zM9,13.2H9.6V13.8H9zM10.2,13.2H10.8V13.8H10.2zM10.8,13.2H11.4V13.8H10.8zM12,13.2H12.6V13.8H12zM12.6,13.2H13.2V13.8H12.6zM13.2,13.2H13.8V13.8H13.2zM13.8,13.2H14.4V13.8H13.8zM14.4,13.2H15V13.8H14.4zM16.2,13.2H16.8V13.8H16.2zM18.6,13.2H19.2V13.8H18.6zM19.8,13.2H20.4V13.8H19.8zM0.6,13.8H1.2V14.4H0.6zM4.2,13.8H4.8V14.4H4.2zM6.6,13.8H7.2V14.4H6.6zM7.2,13.8H7.8V14.4H7.2zM8.4,13.8H9V14.4H8.4zM9,13.8H9.6V14.4H9zM9.6,13.8H10.2V14.4H9.6zM10.8,13.8H11.4V14.4H10.8zM12.6,13.8H13.2V14.4H12.6zM13.2,13.8H13.8V14.4H13.2zM13.8,13.8H14.4V14.4H13.8zM15,13.8H15.6V14.4H15zM15.6,13.8H16.2V14.4H15.6zM16.8,13.8H17.4V14.4H16.8zM17.4,13.8H18V14.4H17.4zM18,13.8H18.6V14.4H18zM19.2,13.8H19.8V14.4H19.2zM0.6,14.4H1.2V15H0.6zM2.4,14.4H3V15H2.4zM3.6,14.4H4.2V15H3.6zM7.2,14.4H7.8V15H7.2zM8.4,14.4H9V15H8.4zM9.6,14.4H10.2V15H9.6zM13.2,14.4H13.8V15H13.2zM15.6,14.4H16.2V15H15.6zM16.2,14.4H16.8V15H16.2zM16.8,14.4H17.4V15H16.8zM18,14.4H18.6V15H18zM18.6,14.4H19.2V15H18.6zM19.2,14.4H19.8V15H19.2zM0.6,15H1.2V15.6H0.6zM3,15H3.6V15.6H3zM3.6,15H4.2V15.6H3.6zM4.2,15H4.8V15.6H4.2zM4.8,15H5.4V15.6H4.8zM6,15H6.6V15.6H6zM6.6,15H7.2V15.6H6.6zM7.2,15H7.8V15.6H7.2zM7.8,15H8.4V15.6H7.8zM8.4,15H9V15.6H8.4zM10.8,15H11.4V15.6H10.8zM12,15H12.6V15.6H12zM12.6,15H13.2V15.6H12.6zM13.8,15H14.4V15.6H13.8zM15,15H15.6V15.6H15zM15.6,15H16.2V15.6H15.6zM16.2,15H16.8V15.6H16.2zM16.8,15H17.4V15.6H16.8zM17.4,15H18V15.6H17.4zM18,15H18.6V15.6H18zM19.2,15H19.8V15.6H19.2zM19.8,15H20.4V15.6H19.8zM5.4,15.6H6V16.2H5.4zM7.8,15.6H8.4V16.2H7.8zM8.4,15.6H9V16.2H8.4zM9,15.6H9.6V16.2H9zM12,15.6H12.6V16.2H12zM12.6,15.6H13.2V16.2H12.6zM13.2,15.6H13.8V16.2H13.2zM14.4,15.6H15V16.2H14.4zM15,15.6H15.6V16.2H15zM17.4,15.6H18V16.2H17.4zM18.6,15.6H19.2V16.2H18.6zM19.8,15.6H20.4V16.2H19.8zM0.6,16.2H1.2V16.8H0.6zM1.2,16.2H1.8V16.8H1.2zM1.8,16.2H2.4V16.8H1.8zM2.4,16.2H3V16.8H2.4zM3,16.2H3.6V16.8H3zM3.6,16.2H4.2V16.8H3.6zM4.2,16.2H4.8V16.8H4.2zM6.6,16.2H7.2V16.8H6.6zM7.8,16.2H8.4V16.8H7.8zM9,16.2H9.6V16.8H9zM9.6,16.2H10.2V16.8H9.6zM10.2,16.2H10.8V16.8H10.2zM12.6,16.2H13.2V16.8H12.6zM13.8,16.2H14.4V16.8H13.8zM14.4,16.2H15V16.8H14.4zM15,16.2H15.6V16.8H15zM16.2,16.2H16.8V16.8H16.2zM17.4,16.2H18V16.8H17.4zM18.6,16.2H19.2V16.8H18.6zM19.2,16.2H19.8V16.8H19.2zM0.6,16.8H1.2V17.4H0.6zM4.2,16.8H4.8V17.4H4.2zM5.4,16.8H6V17.4H5.4zM6,16.8H6.6V17.4H6zM6.6,16.8H7.2V17.4H6.6zM7.2,16.8H7.8V17.4H7.2zM7.8,16.8H8.4V17.4H7.8zM9,16.8H9.6V17.4H9zM13.2,16.8H13.8V17.4H13.2zM13.8,16.8H14.4V17.4H13.8zM14.4,16.8H15V17.4H14.4zM15,16.8H15.6V17.4H15zM17.4,16.8H18V17.4H17.4zM18,16.8H18.6V17.4H18zM18.6,16.8H19.2V17.4H18.6zM19.8,16.8H20.4V17.4H19.8zM0.6,17.4H1.2V18H0.6zM1.8,17.4H2.4V18H1.8zM2.4,17.4H3V18H2.4zM3,17.4H3.6V18H3zM4.2,17.4H4.8V18H4.2zM5.4,17.4H6V18H5.4zM7.2,17.4H7.8V18H7.2zM7.8,17.4H8.4V18H7.8zM10.8,17.4H11.4V18H10.8zM11.4,17.4H12V18H11.4zM13.8,17.4H14.4V18H13.8zM15,17.4H15.6V18H15zM15.6,17.4H16.2V18H15.6zM16.2,17.4H16.8V18H16.2zM16.8,17.4H17.4V18H16.8zM17.4,17.4H18V18H17.4zM18,17.4H18.6V18H18zM19.2,17.4H19.8V18H19.2zM19.8,17.4H20.4V18H19.8zM0.6,18H1.2V18.6H0.6zM1.8,18H2.4V18.6H1.8zM2.4,18H3V18.6H2.4zM3,18H3.6V18.6H3zM4.2,18H4.8V18.6H4.2zM5.4,18H6V18.6H5.4zM6,18H6.6V18.6H6zM6.6,18H7.2V18.6H6.6zM7.2,18H7.8V18.6H7.2zM8.4,18H9V18.6H8.4zM10.2,18H10.8V18.6H10.2zM11.4,18H12V18.6H11.4zM12,18H12.6V18.6H12zM12.6,18H13.2V18.6H12.6zM13.2,18H13.8V18.6H13.2zM14.4,18H15V18.6H14.4zM15.6,18H16.2V18.6H15.6zM17.4,18H18V18.6H17.4zM18,18H18.6V18.6H18zM18.6,18H19.2V18.6H18.6zM19.2,18H19.8V18.6H19.2zM19.8,18H20.4V18.6H19.8zM0.6,18.6H1.2V19.2H0.6zM1.8,18.6H2.4V19.2H1.8zM2.4,18.6H3V19.2H2.4zM3,18.6H3.6V19.2H3zM4.2,18.6H4.8V19.2H4.2zM5.4,18.6H6V19.2H5.4zM6,18.6H6.6V19.2H6zM6.6,18.6H7.2V19.2H6.6zM7.2,18.6H7.8V19.2H7.2zM7.8,18.6H8.4V19.2H7.8zM8.4,18.6H9V19.2H8.4zM9.6,18.6H10.2V19.2H9.6zM10.8,18.6H11.4V19.2H10.8zM11.4,18.6H12V19.2H11.4zM13.2,18.6H13.8V19.2H13.2zM13.8,18.6H14.4V19.2H13.8zM14.4,18.6H15V19.2H14.4zM15,18.6H15.6V19.2H15zM15.6,18.6H16.2V19.2H15.6zM16.2,18.6H16.8V19.2H16.2zM16.8,18.6H17.4V19.2H16.8zM18.6,18.6H19.2V19.2H18.6zM0.6,19.2H1.2V19.8H0.6zM4.2,19.2H4.8V19.8H4.2zM6,19.2H6.6V19.8H6zM6.6,19.2H7.2V19.8H6.6zM7.2,19.2H7.8V19.8H7.2zM7.8,19.2H8.4V19.8H7.8zM8.4,19.2H9V19.8H8.4zM9,19.2H9.6V19.8H9zM10.2,19.2H10.8V19.8H10.2zM11.4,19.2H12V19.8H11.4zM12,19.2H12.6V19.8H12zM12.6,19.2H13.2V19.8H12.6zM13.2,19.2H13.8V19.8H13.2zM13.8,19.2H14.4V19.8H13.8zM15.6,19.2H16.2V19.8H15.6zM16.2,19.2H16.8V19.8H16.2zM17.4,19.2H18V19.8H17.4zM18,19.2H18.6V19.8H18zM18.6,19.2H19.2V19.8H18.6zM0.6,19.8H1.2V20.4H0.6zM1.2,19.8H1.8V20.4H1.2zM1.8,19.8H2.4V20.4H1.8zM2.4,19.8H3V20.4H2.4zM3,19.8H3.6V20.4H3zM3.6,19.8H4.2V20.4H3.6zM4.2,19.8H4.8V20.4H4.2zM5.4,19.8H6V20.4H5.4zM6,19.8H6.6V20.4H6zM8.4,19.8H9V20.4H8.4zM10.8,19.8H11.4V20.4H10.8zM12,19.8H12.6V20.4H12zM13.8,19.8H14.4V20.4H13.8zM14.4,19.8H15V20.4H14.4zM15,19.8H15.6V20.4H15zM15.6,19.8H16.2V20.4H15.6zM16.8,19.8H17.4V20.4H16.8zM18,19.8H18.6V20.4H18zM19.2,19.8H19.8V20.4H19.2z" id="qr-path" fill="#000000" fill-opacity="1" fill-rule="nonzero" stroke="none"/></svg><br>3D model, plans<br>and engineering</div>
 <h1>87 Prince St, Mullumbimby: deck and awning footings</h1>
 <div class="meta" style="padding-right:27mm"><span>For <b>Old Mill, Mullumbimby</b> · Bryce Noakes · 2 Nov 2026</span></div>
-<div class="meta" style="padding-right:27mm;margin-top:.6mm"><span>Design reviewed by <b>Ollie Harris, structural engineer</b> (markup 2 Nov 2026). Everything below follows his markup; anything he didn't flag is as drawn and approved.</span></div>
+<div class="meta" style="padding-right:27mm;margin-top:.6mm"><span>Design reviewed by <b>Ollie Harris, structural engineer</b> (markup and phone call, 2 Nov 2026). Everything below follows his notes; anything he didn't flag is as drawn and approved.</span></div>
 
-<h2>Today: pour the 4 post footings with cast-in brackets</h2>
+<h2>Today: corner posts and footings (engineer's method, 2 Nov call)</h2>
 <table>
 <tr><th>Item</th><th>Spec (engineer)</th><th class="n">Qty</th><th>Old Mill: have it / sub</th></tr>
-<tr><td><b>Cast-in post bracket</b> (stirrup)</td><td>Hot-dip galvanised, cast-in, to suit a <b>150 × 150 post</b>, M12 bolt. Must fit inside a 500 deep footing with concrete under the end and the post foot just above ground.</td><td class="n">4</td><td class="blank"></td></tr>
-<tr><td><b>Concrete</b>, post footings</td><td>20 kg bags. Four footings <b>500 × 500 × 500</b> = 0.5 m³ (about 54 bags), plus spare</td><td class="n">60</td><td class="blank"></td></tr>
-<tr><td>M12 bolts for the brackets</td><td>HDG, about M12 × 200 with nuts and washers, to suit 150 post + bracket plates (needed when posts go in)</td><td class="n">4</td><td class="blank"></td></tr>
-<tr><td>Posts (to check the bracket fit)</td><td><b>150 × 150 H4</b> treated pine, 3.6 m</td><td class="n">4</td><td class="blank"></td></tr>
+<tr><td><b>Corner posts</b></td><td><b>100 × 100 hardwood, in-ground durability class</b> (cast straight into concrete, no brackets). Engineer: a cast-in post must be H4 or an in-ground class hardwood.</td><td class="n">2 × 4.2 m<br>2 × 3.9 m</td><td class="blank"></td></tr>
+<tr><td><b>Concrete</b>, corner pads</td><td>20 kg bags. Four pads 500 × 500 × 250 = 0.25 m³</td><td class="n">30</td><td class="blank"></td></tr>
+<tr><td>Concrete, stump pads</td><td>20 kg bags. Five pads 400 × 400 × 200 = 0.16 m³</td><td class="n">20</td><td class="blank"></td></tr>
+<tr><td>Stump anchors</td><td>Short galvanised post anchor for 90 × 90 stumps, M12, to fit a 200 deep pad with concrete under the stem</td><td class="n">5</td><td class="blank"></td></tr>
+<tr><td>Stumps</td><td>90 × 90 F7 H4 × 2.7 m (makes all five)</td><td class="n">1</td><td class="blank"></td></tr>
+<tr><td>Bitumen paint</td><td>For the buried post ends (already bought)</td><td class="n">—</td><td class="blank"></td></tr>
 </table>
-<p class="small" style="margin:1mm 0 0">Optional today, if pouring the stump footings too: 5 × Pryda Post Anchor High Wind 600 × 90 M12, and about 40 more bags for five 400 dia × 525 deep holes.</p>
 
 <div class="two">
 <div>
 <h2>Footing setout</h2>
-<svg class="plan" viewBox="0 0 330 300" width="100%">
-  <!-- studio wall at top -->
-  <rect x="30" y="18" width="270" height="14" fill="#ddd" stroke="#111" stroke-width="1"/>
-  <text x="165" y="13" font-size="9" text-anchor="middle" font-weight="600">STUDIO (trailer) south wall · cladding face</text>
-  <!-- deck outline -->
-  <rect x="40" y="35" width="250" height="208" fill="none" stroke="#999" stroke-dasharray="4 3"/>
-  <!-- bearer lines -->
-  <line x1="40" y1="44" x2="290" y2="44" stroke="#bbb" stroke-width="2"/>
-  <line x1="40" y1="139" x2="290" y2="139" stroke="#bbb" stroke-width="2"/>
-  <line x1="40" y1="233" x2="290" y2="233" stroke="#bbb" stroke-width="2"/>
-  <!-- footings 500 sq -->
-  <g fill="#fff" stroke="#111" stroke-width="1.4">
-   <rect x="31" y="29" width="26" height="26"/><rect x="273" y="29" width="26" height="26"/>
-   <rect x="31" y="225" width="26" height="26"/><rect x="273" y="225" width="26" height="26"/></g>
-  <g fill="#111"><rect x="40" y="38" width="8" height="8"/><rect x="282" y="38" width="8" height="8"/><rect x="40" y="234" width="8" height="8"/><rect x="282" y="234" width="8" height="8"/></g>
-  <!-- stump footings -->
-  <g fill="none" stroke="#777" stroke-dasharray="2 2"><circle cx="165" cy="46" r="10"/><circle cx="165" cy="231" r="10"/><circle cx="56" cy="139" r="10"/><circle cx="165" cy="139" r="10"/><circle cx="274" cy="139" r="10"/></g>
-  <text x="165" y="153" font-size="7.5" text-anchor="middle" fill="#666">stump footings (dashed)</text>
-  <!-- labels -->
-  <g font-size="8.5" font-weight="700"><text x="60" y="64">A1</text><text x="255" y="64">A2</text><text x="60" y="222">B1</text><text x="255" y="222">B2</text></g>
-  <!-- dims -->
-  <g stroke="#c2410c" fill="#c2410c" font-size="8.5">
-   <line x1="44" y1="268" x2="286" y2="268"/><text x="165" y="280" text-anchor="middle">4 650 post centres</text>
-   <line x1="312" y1="42" x2="312" y2="238"/><text x="318" y="140" transform="rotate(90 318 140)" text-anchor="middle">3 760 post centres</text>
-   <line x1="44" y1="42" x2="286" y2="238" stroke-dasharray="3 2"/><text x="200" y="182" transform="rotate(39 200 182)" text-anchor="middle">diagonals 5 980</text>
-  </g>
-  <text x="165" y="296" font-size="9" text-anchor="middle" font-weight="600">SHED (front wall 1 380 past the B posts)</text>
-  <text x="6" y="140" font-size="8" transform="rotate(-90 6 140)" text-anchor="middle">dividing fence side</text>
-  <text x="326" y="140" font-size="8" transform="rotate(90 326 140)" text-anchor="middle" dx="0" dy="-8">lane side</text>
-</svg>
+<div class='dw'><svg viewBox='0 0 1000 746' role='img' aria-label='Setout plan'><rect class='ctxfill' x='207.9' y='0.0' width='792.1' height='87.9'/><text class='ctx' x='549.3' y='45.1' text-anchor='middle'>STUDIO (trailer) · south wall cladding face</text><line class='ctxl' x1='43.7' y1='0.0' x2='43.7' y2='746.5'/><text class='ctx' x='29.6' y='373.2' text-anchor='middle' transform='rotate(-90 29.6 373.2)'>DIVIDING FENCE</text><rect class='ctxfill' x='38.7' y='802.8' width='961.3' height='29.600000000000023'/><rect class='outline' x='211.3' y='91.5' width='676.0' height='563.4'/><rect class='ftg' x='186.6' y='91.5' width='70.4' height='70.5'/><rect class='ftg' x='186.6' y='602.8' width='70.4' height='70.40000000000009'/><rect class='ftg' x='841.5' y='91.5' width='70.5' height='70.5'/><rect class='ftg' x='841.5' y='602.8' width='70.5' height='70.40000000000009'/><rect class='ftg' x='521.1' y='90.5' width='56.39999999999998' height='56.30000000000001'/><rect class='ftg' x='521.1' y='599.6' width='56.39999999999998' height='56.39999999999998'/><rect class='ftg' x='225.4' y='345.1' width='56.29999999999998' height='56.299999999999955'/><rect class='ftg' x='521.1' y='345.1' width='56.39999999999998' height='56.299999999999955'/><rect class='ftg' x='816.9' y='345.1' width='56.30000000000007' height='56.299999999999955'/><rect class='post' x='214.8' y='101.4' width='14.099999999999994' height='14.099999999999994'/><rect class='post' x='214.8' y='631.0' width='14.099999999999994' height='14.100000000000023'/><rect class='post' x='869.7' y='101.4' width='14.099999999999909' height='14.099999999999994'/><rect class='post' x='869.7' y='631.0' width='14.099999999999909' height='14.100000000000023'/><rect class='postp' x='543.0' y='112.3' width='12.600000000000023' height='12.700000000000003'/><rect class='postp' x='543.0' y='621.5' width='12.600000000000023' height='12.700000000000045'/><rect class='postp' x='247.2' y='366.9' width='12.699999999999989' height='12.700000000000045'/><rect class='postp' x='543.0' y='366.9' width='12.600000000000023' height='12.700000000000045'/><rect class='postp' x='838.7' y='366.9' width='12.699999999999932' height='12.700000000000045'/><text class='note' x='268.3' y='154.9' text-anchor='middle'>A1</text><text class='note' x='830.3' y='154.9' text-anchor='middle'>A2</text><text class='note' x='268.3' y='601.4' text-anchor='middle'>B1</text><text class='note' x='830.3' y='601.4' text-anchor='middle'>B2</text><text class='ctxs' x='595.8' y='124.2' text-anchor='middle'>S1</text><text class='ctxs' x='595.8' y='633.5' text-anchor='middle'>S2</text><text class='ctxs' x='300.0' y='378.9' text-anchor='middle'>S3</text><text class='ctxs' x='595.8' y='378.9' text-anchor='middle'>S4</text><text class='ctxs' x='891.5' y='378.9' text-anchor='middle'>S5</text><line class='ext' x1='221.8' y1='108.5' x2='221.8' y2='23.6'/><line class='ext' x1='876.8' y1='108.5' x2='876.8' y2='23.6'/><line class='dim' x1='221.8' y1='29.6' x2='876.8' y2='29.6'/><line class='tk' x1='217.8' y1='33.6' x2='225.8' y2='25.6'/><line class='tk' x1='872.8' y1='33.6' x2='880.8' y2='25.6'/><text class='dl' x='549.3' y='24.6' text-anchor='middle'>4 650 post centres</text><line class='ext' x1='221.8' y1='638.0' x2='221.8' y2='722.9'/><line class='ext' x1='876.8' y1='638.0' x2='876.8' y2='722.9'/><line class='dim' x1='221.8' y1='716.9' x2='876.8' y2='716.9'/><line class='tk' x1='217.8' y1='720.9' x2='225.8' y2='712.9'/><line class='tk' x1='872.8' y1='720.9' x2='880.8' y2='712.9'/><text class='dl' x='549.3' y='711.9' text-anchor='middle'>4 650</text><line class='ext' x1='876.8' y1='108.5' x2='970.1' y2='108.5'/><line class='ext' x1='876.8' y1='638.0' x2='970.1' y2='638.0'/><line class='dim' x1='964.1' y1='108.5' x2='964.1' y2='638.0'/><line class='tk' x1='960.1' y1='112.5' x2='968.1' y2='104.5'/><line class='tk' x1='960.1' y1='642.0' x2='968.1' y2='634.0'/><text class='dl' x='964.1' y='368.2' text-anchor='middle' transform='rotate(-90 964.1 368.2)'>3 760 post centres</text><line class='dim' x1='221.8' y1='108.5' x2='876.8' y2='638.0'/><text class='dl' x='570.4' y='394.4' text-anchor='middle' transform='rotate(39 570.4 394.4)'>diagonals 5 980 (both)</text><line class='ext' x1='207.9' y1='87.9' x2='207.9' y2='53.7'/><line class='ext' x1='221.8' y1='87.9' x2='221.8' y2='53.7'/><line class='dim' x1='207.9' y1='59.7' x2='221.8' y2='59.7'/><line class='tk' x1='203.9' y1='63.7' x2='211.9' y2='55.7'/><line class='tk' x1='217.8' y1='63.7' x2='225.8' y2='55.7'/><text class='dl' x='214.9' y='54.7' text-anchor='middle'>99</text><line class='ext' x1='221.8' y1='87.9' x2='169.4' y2='87.9'/><line class='ext' x1='221.8' y1='108.5' x2='169.4' y2='108.5'/><line class='dim' x1='175.4' y1='87.9' x2='175.4' y2='108.5'/><line class='tk' x1='171.4' y1='91.9' x2='179.4' y2='83.9'/><line class='tk' x1='171.4' y1='112.5' x2='179.4' y2='104.5'/><text class='dl' x='175.4' y='93.2' text-anchor='middle' transform='rotate(-90 175.4 93.2)'>146</text><text class='ctx' x='549.3' y='795.8' text-anchor='middle'>SHED · front wall 1 380 past the B posts</text><text class='ctx' x='964.8' y='373.2' text-anchor='middle' transform='rotate(90 964.8 373.2)'>LANE SIDE</text></svg></div>
 </div>
 <div>
 <h2>Post centres (mm)</h2>
 <table>
-<tr><th>Post</th><th>Along the studio wall, from its west end</th><th>Out from the studio cladding</th></tr>
+<tr><th>Post</th><th>Along studio wall from its west end</th><th>Out from studio cladding</th></tr>
 <tr><td><b>A1</b></td><td>99</td><td>146</td></tr>
 <tr><td><b>A2</b></td><td>4 749</td><td>146</td></tr>
 <tr><td><b>B1</b></td><td>99</td><td>3 906</td></tr>
 <tr><td><b>B2</b></td><td>4 749</td><td>3 906</td></tr>
 </table>
-<p class="small" style="margin:1mm 0">Check: A1–A2 and B1–B2 = 4 650; A–B = 3 760; both diagonals = 5 980. Each hole is 500 square, centred on its post. The A holes come within about 100 of the studio cladding: keep clear of the trailer stands.</p>
-<h2>Bracket setting (engineer's detail)</h2>
-<ul>
-<li>Centre the bracket in the hole; post foot just above ground.</li>
-<li><b>Orientation:</b> bracket plates <b>parallel to the studio wall</b> (the bearer line), so the bolt runs towards the shed, the same way as the knee-brace bolts.</li>
-<li>Plates plumb and square to the setout lines; prop them until the concrete sets.</li>
-<li>Footings 500 × 500 × 500.</li>
-</ul>
+<p class="small" style="margin:1mm 0">Check: 4 650 along, 3 760 across, both diagonals 5 980.</p>
+<h2>Corner footing (engineer)</h2>
+<ol>
+<li>Dig <b>500 × 500, 800 deep</b> into the clay.</li>
+<li>Bitumen the buried part of the post.</li>
+<li>Hang the post plumb with its foot <b>150 off the bottom</b>; prop both ways.</li>
+<li>Pour a <b>250 concrete pad</b>: 150 under the post, post 100 in.</li>
+<li>Once set, backfill <b>≈550 of soil</b> over the pad, rammed in layers. The soil gives the uplift hold-down.</li>
+</ol>
+<p class="small" style="margin:1mm 0">Stumps: 400 × 400 pads, 200 deep, with the anchor cast in.</p>
 </div>
 </div>
-
-<div class="box warn"><b>Before you pour:</b> check the bracket's stem fits a 500 deep hole with concrete under the end. A 600 long high-wind anchor won't; if that's all that's available, ring Ollie before digging deeper (650 deep would take about 75 bags instead of 60).</div>
+<div class="box warn"><b>Studio-side holes A1, A2:</b> centred on the post, a 500 hole would run about 100 under the studio. Dig them from the studio line outward so the post sits off-centre in the pad, and keep clear of the trailer stands.</div>
 </section>
 
 <!-- ======================= PAGE 2 ======================= -->
 <section class="page">
 <h1>Full material list for quote: deck and awning</h1>
-<div class="meta"><span>87 Prince St, Mullumbimby · Bryce Noakes · 2 Nov 2026 · per Ollie Harris's markup</span></div>
+<div class="meta"><span>87 Prince St, Mullumbimby · Bryce Noakes · 2 Nov 2026 · per Ollie Harris's markup and call</span></div>
 
 <h2>Timber</h2>
 <table>
 <tr><th>Item</th><th>Spec</th><th class="n">Length</th><th class="n">Qty</th><th>Old Mill price / sub</th></tr>
-<tr><td>Posts</td><td>150 × 150 H4 treated pine, on cast-in brackets</td><td class="n">3.6 m</td><td class="n">4</td><td class="blank"></td></tr>
+<tr><td>Posts</td><td>100 × 100 hardwood, in-ground durability class, cast in</td><td class="n">4.2 / 3.9 m</td><td class="n">2 + 2</td><td class="blank"></td></tr>
 <tr><td>Roof beams B1 and B2</td><td><b>240 × 45 H3 MGP12</b> (2 plies per beam, one each side of the posts)</td><td class="n">6.0 m</td><td class="n">4</td><td class="blank"></td></tr>
 <tr><td>Rafters</td><td>190 × 45 H3 MGP10, 6 at 930 centres</td><td class="n">6.0 m</td><td class="n">6</td><td class="blank"></td></tr>
 <tr><td>Fascia</td><td>140 × 35 H3</td><td class="n">6.0 m</td><td class="n">1</td><td class="blank"></td></tr>
@@ -127,11 +131,10 @@ svg.plan text{font-family:inherit}
 <h2>Hardware and concrete</h2>
 <table>
 <tr><th>Item</th><th>Spec</th><th class="n">Qty</th><th>Old Mill price / sub</th></tr>
-<tr><td>Cast-in post brackets</td><td>HDG, for 150 × 150 posts, M12 (see page 1)</td><td class="n">4</td><td class="blank"></td></tr>
-<tr><td>Stump anchors</td><td>Pryda Post Anchor High Wind 600 × 90 M12</td><td class="n">5</td><td class="blank"></td></tr>
-<tr><td>Bolts</td><td>M12 HDG: beams to posts, bearers to posts and stumps, 8 for the knee braces, bracket bolts; 50 × 50 square washers</td><td class="n">1 lot</td><td class="blank"></td></tr>
+<tr><td>Stump anchors</td><td>Short galvanised post anchor for 90 stumps, M12, to suit a 200 deep pad</td><td class="n">5</td><td class="blank"></td></tr>
+<tr><td>Bolts</td><td>M12 HDG: beams to posts, bearers to posts and stumps, 8 for the knee braces; 50 × 50 square washers</td><td class="n">1 lot</td><td class="blank"></td></tr>
 <tr><td>Straps and screws</td><td>Triple grips or cyclone straps (every rafter to the beams), batten and decking screws</td><td class="n">1 lot</td><td class="blank"></td></tr>
-<tr><td>Concrete</td><td>20 kg bags: 60 for the post footings, 40 for the stump footings</td><td class="n">100</td><td class="blank"></td></tr>
+<tr><td>Concrete</td><td>20 kg bags: 30 for the corner pads, 20 for the stump pads</td><td class="n">50</td><td class="blank"></td></tr>
 <tr><td>End sealer</td><td>For cut ends of treated timber</td><td class="n">1</td><td class="blank"></td></tr>
 </table>
 <p class="small" style="margin:1mm 0 0">Roof sheets (Zincalume and clear corrugated) are not in this list.</p>
@@ -146,12 +149,12 @@ svg.plan text{font-family:inherit}
 </ul>
 <ul>
 <li><b>Diagonal timber knee brace</b> at all 4 corner posts: min 120 × 45, M12 bolt each end.</li>
-<li>Posts on <b>cast-in brackets</b>, oriented as drawn; footings <b>500 × 500 × 500</b>.</li>
+<li>Posts <b>100 × 100 in-ground hardwood</b> cast straight in: 800 hole, 250 pad (150 under the post), ≈550 soil backfill. Stump pads 400 square × 200.</li>
 <li>B1 and B2: <b>2/240 × 45 MGP12</b>.</li>
 <li>Rafters 190 × 45 at 930 and fascia 140 × 35: approved as drawn.</li>
 </ul>
 </div>
 
-<div class="box"><b>For Old Mill:</b> if you can't get 240 × 45 MGP12 H3, 150 × 150 H4 posts or 150 cast-in brackets, note the substitute in the right-hand column and I'll check it with the engineer before ordering. Plans, 3D model and the engineer's markup: <b>tradearts.work/prince-street-deck-awning/p25.html</b></div>
+<div class="box"><b>For Old Mill:</b> if you can't get 240 × 45 MGP12 H3 or in-ground class 100 × 100 hardwood posts, note the substitute in the right-hand column and I'll check it with the engineer before ordering. Plans, 3D model and the engineer's markup: <b>tradearts.work/prince-street-deck-awning/p26.html</b></div>
 </section>
 </body></html>
