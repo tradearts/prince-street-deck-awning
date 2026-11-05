@@ -89,7 +89,7 @@
       sheet:poly,zinc:corr,swall:corr,sroof:std({color:0xf1f2f0,roughness:0.5,metalness:0.2}),groof:corr,gwall:corrG,gpoly:std({color:0xdce8ea,transparent:true,opacity:0.5,roughness:0.3}),
       footing:conc,slab:conc,gravel:conc,paver:sand,chain:std({color:0xa8643a,roughness:0.35,metalness:0.8}),creek:pbr('gravel_stones_diff','gravel_stones_nor',0.6,0xd9c8a8,0.9),blue:gravel,lane:lane,ply:ply,rock:sand,rock2:sand,
       fence:newFence,fencetop:topper,gatetop:topper,pgate:newFence,fencepost:pineDark,gate:newFence,fencegrey:oldFence,fencegreypost:std({color:0x7c7a74,roughness:0.95}),
-      anchor:galv,steel:steelDark,gutter:galv,planter:galv,firepit:steelDark,ikea:ikea,ikdoor:std({color:0x4a5054,roughness:0.6}),ikss:ss,ikburn:std({color:0x15181a,roughness:0.6}),ckglass:std({color:0x101214,roughness:0.15,metalness:0.2}),ckgrate:std({color:0x1c1d1f,roughness:0.7}),ckknob:ss,ss:ss,ssb:ss,ssleg:ss,
+      anchor:galv,steel:steelDark,gutter:galv,planter:galv,pool:std({color:0xa7a69f,roughness:0.95}),ppad:std({color:0xcfc6b3,roughness:1}),water:std({color:0x3d8e9c,roughness:0.08,metalness:0.1,transparent:true,opacity:0.85}),firepit:steelDark,ikea:ikea,ikdoor:std({color:0x4a5054,roughness:0.6}),ikss:ss,ikburn:std({color:0x15181a,roughness:0.6}),ckglass:std({color:0x101214,roughness:0.15,metalness:0.2}),ckgrate:std({color:0x1c1d1f,roughness:0.7}),ckknob:ss,ss:ss,ssb:ss,ssleg:ss,
       glass:glass,appdoor:glass,door:door,gdoor:std({color:0x8d7748,roughness:0.7}),floor:pine,appl:white,table:hardwood,tleg:steelDark,boundary:std({color:0xc2500f,roughness:0.8}),lattice:lattice,
       szinc:std({color:0xe8eef0,roughness:0.42,metalness:0.3,side:THREE.DoubleSide}),sskin:std({color:0xcfd4d3,roughness:0.45,metalness:0.3,side:THREE.DoubleSide}),ssoff:std({color:0xf4f4f1,roughness:0.5,side:THREE.DoubleSide}),
       sframe:std({color:0x6a4426,roughness:0.6,side:THREE.DoubleSide}),sglass:std({color:0x1a2228,roughness:0.1,metalness:0.4,side:THREE.DoubleSide}),sflash:std({color:0xbfc5c7,roughness:0.4,metalness:0.6,side:THREE.DoubleSide}),
@@ -105,7 +105,7 @@
     geo.setAttribute('uv',new THREE.BufferAttribute(uv,2))}
 
   /* ---------- groups / picking ---------- */
-  var FIT={slatrail:1,firepit:1,ikea:1,ikdoor:1,ikss:1,ikburn:1,ckglass:1,ckgrate:1,ckknob:1,ssb:1,ssleg:1,slat2:1,fc:1,fcframe:1,ply:1,ktop:1,ss:1,burner:1,appl:1,appdoor:1,table:1,tleg:1}, PER={person:1,personh:1};
+  var FIT={pool:1,water:1,ppad:1,slatrail:1,firepit:1,ikea:1,ikdoor:1,ikss:1,ikburn:1,ckglass:1,ckgrate:1,ckknob:1,ssb:1,ssleg:1,slat2:1,fc:1,fcframe:1,ply:1,ktop:1,ss:1,burner:1,appl:1,appdoor:1,table:1,tleg:1}, PER={person:1,personh:1};
   var GRD={blue:1,lane:1};
   var CTX={lattice:1,szinc:1,sskin:1,ssoff:1,sframe:1,sglass:1,sflash:1,trailer:1,sblack:1,sskirt:1,gframe:1,pgate:1,gatetop:1,fencegrey:1,fencegreypost:1,gate:1,boundary:1,planter:1,rock2:1,swall:1,sroof:1,glass:1,door:1,steel:1,floor:1,gwall:1,gpoly:1,groof:1,gdoor:1,slab:1,gutter:1,fence:1,fencetop:1};
   var groups={sheet:[],deck:[],ctx:[],ground:[],slat:[],fit:[],person:[],plant:[]}, pickable=[];
