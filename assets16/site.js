@@ -58,6 +58,7 @@
         x.strokeStyle='rgba(255,255,230,0.18)';x.lineWidth=1;x.beginPath();x.moveTo(-lw,0);x.lineTo(lw,0);x.stroke();x.restore()}})}
   var ashCard=leafCard(11,['#2f5a2a','#3b6b31','#476f36','#28502a','#557a3c'],170,14,4.5);
   var slimCard=leafCard(13,['#4f6b3e','#5c7a47','#3f5d36','#6a8452'],230,10,2.2);
+  var gracCard=leafCard(29,['#5a8a3a','#6f9a45','#4a7a33','#7fa850'],320,13,1.6);
   var vineCard=leafCard(17,['#2d5a2c','#3a6d35','#4b7a3a'],110,11,5);
   var pothCard=leafCard(23,['#1f4a22','#2a5a28','#24502a','#356a30'],70,16,8);
   var violCard=leafCard(19,['#3e6a35','#4c7a3e'],60,9,8);
@@ -224,6 +225,10 @@
         for(var j=0;j<5;j++)centers.push(base.clone().lerp(top,0.25+0.75*r()))}
       G.add(B.mesh(barkMat));cards(G,slimCard,centers,0.42,r()*1e9|0,0xffffff,true);
       var bm=std({color:0xc0262b,roughness:0.6});for(var q=0;q<22;q++){var c=centers[(r()*centers.length)|0],m=new THREE.Mesh(new THREE.CylinderGeometry(0.028,0.028,0.09,7),bm);m.position.copy(c).add(new V3((r()-0.5)*0.15,0.05,(r()-0.5)*0.15));m.rotation.z=(r()-0.5)*0.6;G.add(m)}},
+    grac:function(G,r){var B=new Buf(),centers=[],n=22;for(var k=0;k<n;k++){var a=r()*6.28,d=r()*0.22,base=new V3(Math.cos(a)*d,0,Math.sin(a)*d),H=2.8+r()*1.4,lean=0.05+r()*0.18,top=new V3(Math.cos(a)*(d+lean),H,Math.sin(a)*(d+lean)),prev=base;
+        for(var s=1;s<=4;s++){var p=base.clone().lerp(top,s/4);p.x+=Math.cos(a)*lean*0.3*Math.sin(Math.PI*s/4);tube(B,prev,p,0.012*(1-s/6),0.011*(1-s/6),col(0x8aa84a).offsetHSL(0,0,(r()-0.5)*0.06),5);prev=p}
+        for(var j=0;j<6;j++){var t=0.35+0.65*r();centers.push(base.clone().lerp(top,t).add(new V3((r()-0.5)*0.35,0,(r()-0.5)*0.35)))}}
+      G.add(B.mesh(barkMat));cards(G,gracCard,centers,0.55,r()*1e9|0,0xffffff,true)},
     vine:function(G,r){var centers=[];for(var k=0;k<70;k++){var hy=Math.pow(r(),0.6);centers.push(new V3(-0.03-r()*0.08,0.3+hy*1.55,(r()-0.5)*(0.5+hy*1.6)))}
       var B=new Buf();cards(G,vineCard,centers,0.42,r()*1e9|0,0xffffff,true);G.children[G.children.length-1].rotation.y=0;
       var fm=std({color:0xf4e9ef,roughness:0.6}),pm=std({color:0xb94f80,roughness:0.6});for(var j=0;j<26;j++){var s=new THREE.Mesh(new THREE.ConeGeometry(0.025,0.05,6),r()<0.5?fm:pm);s.position.set(-0.07,0.4+r()*1.4,(r()-0.5)*1.4);s.rotation.z=1.4;G.add(s)}},
@@ -250,7 +255,7 @@
     viol:function(G,r){var centers=[];for(var k=0;k<5;k++)centers.push(new V3((r()-0.5)*0.25,0.04,(r()-0.5)*0.25));cards(G,violCard,centers,0.2,r()*1e9|0,0xffffff,false);
       var pm=std({color:0x6c4fb0,roughness:0.6});for(var j=0;j<7;j++){var s=new THREE.Mesh(new THREE.SphereGeometry(0.01,6,5),pm);s.position.set((r()-0.5)*0.25,0.08,(r()-0.5)*0.25);G.add(s)}}
   };
-  var PLAB={crin:'pl_crin',cvine:'pl_cvine',tfern:'pl_tfern',cpet:'pl_cpet',cunj:'pl_cunj',bnf:'pl_bnf',pot:'pl_pot',lom:'pl_lom',lsp:'pl_lsp',dian:'pl_dian',cstr:'pl_cstr',ging:'pl_ging',dory:'pl_dory',wsp:'pl_wsp',bang:'pl_bang',ash:'pl_ash',slim:'pl_slim',vine:'pl_vine',viol:'pl_viol'};
+  var PLAB={crin:'pl_crin',cvine:'pl_cvine',tfern:'pl_tfern',cpet:'pl_cpet',cunj:'pl_cunj',bnf:'pl_bnf',pot:'pl_pot',lom:'pl_lom',lsp:'pl_lsp',dian:'pl_dian',cstr:'pl_cstr',ging:'pl_ging',dory:'pl_dory',wsp:'pl_wsp',bang:'pl_bang',ash:'pl_ash',slim:'pl_slim',grac:'pl_grac',vine:'pl_vine',viol:'pl_viol'};
   function buildPlants(){(D.PL||[]).forEach(function(p){var G=new THREE.Group(),r=rng(p[3]*7919+13),k=p[0];
       var x=p[1]/1000,z=p[2]/1000,y=0;if(k==='slim'&&x<0){G.userData.y0=0.58}
       if(SPECIES[k])SPECIES[k](G,r);G.position.set(x,y,z);G.rotation.y=k==='vine'?0:k==='cvine'?0:r()*6.28;add(G,PLAB[k]||k,'plant')})}
