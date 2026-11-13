@@ -106,7 +106,7 @@
     geo.setAttribute('uv',new THREE.BufferAttribute(uv,2))}
 
   /* ---------- groups / picking ---------- */
-  var FIT={pool:1,water:1,ppad:1,slatrail:1,firepit:1,ikea:1,ikdoor:1,ikss:1,ikburn:1,ckglass:1,ckgrate:1,ckknob:1,ssb:1,ssleg:1,slat2:1,fc:1,fcframe:1,ply:1,ktop:1,ss:1,burner:1,appl:1,appdoor:1,table:1,tleg:1}, PER={person:1,personh:1};
+  var FIT={pool:1,water:1,ppad:1,slatrail:1,firepit:1,ikea:1,ikdoor:1,ikss:1,ikburn:1,ckglass:1,ckgrate:1,ckknob:1,ssb:1,ssleg:1,slat2:1,fc:1,fcframe:1,ply:1,ktop:1,ss:1,burner:1,appl:1,appdoor:1,table:1,tleg:1}, PER={person:1,personh:1,sitter:1,sitterc:1};
   var GRD={blue:1,lane:1};
   var CTX={lattice:1,szinc:1,sskin:1,ssoff:1,sframe:1,sglass:1,sflash:1,trailer:1,sblack:1,sskirt:1,gframe:1,pgate:1,gatetop:1,fencegrey:1,fencegreypost:1,gate:1,boundary:1,planter:1,rock2:1,swall:1,sroof:1,glass:1,door:1,steel:1,floor:1,gwall:1,gpoly:1,groof:1,gdoor:1,slab:1,gutter:1,fence:1,fencetop:1};
   var groups={sheet:[],deck:[],ctx:[],ground:[],slat:[],fit:[],person:[],plant:[]}, pickable=[];
