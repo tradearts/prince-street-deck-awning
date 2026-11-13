@@ -109,9 +109,9 @@
   var FIT={pool:1,water:1,ppad:1,slatrail:1,firepit:1,ikea:1,ikdoor:1,ikss:1,ikburn:1,ckglass:1,ckgrate:1,ckknob:1,ssb:1,ssleg:1,slat2:1,fc:1,fcframe:1,ply:1,ktop:1,ss:1,burner:1,appl:1,appdoor:1,table:1,tleg:1}, PER={person:1,personh:1,sitter:1,sitterc:1};
   var GRD={blue:1,lane:1};
   var CTX={lattice:1,szinc:1,sskin:1,ssoff:1,sframe:1,sglass:1,sflash:1,trailer:1,sblack:1,sskirt:1,gframe:1,pgate:1,gatetop:1,fencegrey:1,fencegreypost:1,gate:1,boundary:1,planter:1,rock2:1,swall:1,sroof:1,glass:1,door:1,steel:1,floor:1,gwall:1,gpoly:1,groof:1,gdoor:1,slab:1,gutter:1,fence:1,fencetop:1};
-  var groups={sheet:[],deck:[],ctx:[],ground:[],slat:[],fit:[],person:[],plant:[]}, pickable=[];
+  var groups={sheet:[],deck:[],ctx:[],ground:[],slat:[],fit:[],person:[],plant:[],unb:[]}, pickable=[];
   var NOSHADOW={sheet:1,gpoly:1,boundary:1,blue:1,lane:1};
-  function add(o,g,kind){scene.add(o); o.userData.g=g;
+  function add(o,g,kind){scene.add(o); o.userData.g=g; if({pool:1,water:1,ppad:1,chain:1,creek:1,planter:1,sitter:1,sitterc:1}[g])groups.unb.push(o);
     o.traverse(function(c){if(c.isMesh){c.castShadow=!NOSHADOW[g];c.receiveShadow=true;c.userData.g=g;if(LAB[g]||kind)pickable.push(c)}});
     if(kind==='plant'){groups.plant.push(o);return}
     if(g==='sheet'||g==='zinc')groups.sheet.push(o); if(g==='deck'||g==='stepdeck')groups.deck.push(o); if(FIT[g])groups.fit.push(o); if(PER[g])groups.person.push(o);
@@ -281,6 +281,14 @@
   ctl.addEventListener('change',draw);
   buildModel();
   ['sheet','deck','ctx','ground','slat','fit','person','plant'].forEach(function(k){bind('t-'+k,k)});
+  (function(){var el=document.getElementById('t-built');if(!el)return;el.addEventListener('change',function(){var on=!el.checked;
+    ['fit','plant','unb'].forEach(function(k){groups[k].forEach(function(o){o.visible=on})});['t-fit','t-plant'].forEach(function(id){var c=document.getElementById(id);if(c)c.checked=on});draw()})})();
+  /* real summer sun for Mullumbimby, mid-December (AEDT). Site north = -Y in model coordinates, east = +X (lane). */
+  var SUN={7:[109,15],9:[97,40],12:[62,79],15:[272,58],17:[259,32]};
+  window.__sun=function(h){var a=SUN[h];if(!a)return;var az=a[0]*Math.PI/180,al=a[1]*Math.PI/180,r=22,tx=3.5,tz=2.5;
+    sun.target.position.set(tx,0,tz);sun.position.set(tx+r*Math.sin(az)*Math.cos(al),r*Math.sin(al),tz-r*Math.cos(az)*Math.cos(al));sun.intensity=a[1]<20?1.3:1.8;
+    document.querySelectorAll('#sunbar button').forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-sun')==String(h))});draw()};
+  document.querySelectorAll('#sunbar button').forEach(function(b){b.addEventListener('click',function(){window.__sun(+b.getAttribute('data-sun'))})});
   document.querySelectorAll('.views button').forEach(function(b){b.addEventListener('click',function(){setView(b.dataset.v)})});
   if(window.ResizeObserver)new ResizeObserver(size).observe(box); else window.addEventListener('resize',size);
   setView('site'); size(); setTimeout(draw,400);
