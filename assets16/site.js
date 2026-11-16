@@ -12,7 +12,7 @@
   var scene=new THREE.Scene(), cam=new THREE.PerspectiveCamera(42,1.6,0.05,250);
   var ctl=new THREE.OrbitControls(cam,cv); ctl.maxPolarAngle=Math.PI*0.62; ctl.minDistance=0.5; ctl.maxDistance=45;
   var VIEWS=window.__VIEWS;
-  function setView(k){var v=VIEWS[k];cam.position.set(v[0][0],v[0][1],v[0][2]);ctl.target.set(v[1][0],v[1][1],v[1][2]);ctl.update();draw()}
+  function setView(k){var v=VIEWS[k];if((k==='intiny'||k==='inshed')&&window.__inside)window.__inside(true);cam.position.set(v[0][0],v[0][1],v[0][2]);ctl.target.set(v[1][0],v[1][1],v[1][2]);ctl.update();draw()}
   window.__v=function(p,t){cam.position.set(p[0],p[1],p[2]);ctl.target.set(t[0],t[1],t[2]);ctl.update();draw()};
   var maxAniso=renderer.capabilities.getMaxAnisotropy();
 
@@ -86,12 +86,13 @@
     var steelDark=std({color:0x30363a,roughness:0.55,metalness:0.4}), ss=std({color:0xd6dadc,roughness:0.28,metalness:0.85}), galv=std({color:0xc3c9cc,roughness:0.35,metalness:0.75});
     var ikea=std({color:0x5d6469,roughness:0.6,metalness:0.2}), glass=std({color:0x1f2f3a,roughness:0.08,metalness:0.4}), door=std({color:0x5b3a22,roughness:0.55});
     var white=std({color:0xf2f2ef,roughness:0.4}), hardwood=std({map:pineTex([150,104,66],29),roughness:0.55});hardwood.userData.tile=1.2;hardwood.userData.v=0.3;hardwood.userData.wood=1;
+    var IP=std({color:0xdcb984,roughness:0.65,normalMap:tex('plywood_nor'),emissive:0xdcb984,emissiveIntensity:0.16});IP.userData.tile=1.2;
     MAT={post:hardwood,tstrut:hardwood,backfill:std({color:0x6b5a44,roughness:1,transparent:true,opacity:0.35,depthWrite:false}),stump:pineDark,fascia:pine,brace:pine,bearer:pineDark,joist:pineDark,deck:deck,stepdeck:deck,B1:pineDark,B2:pineDark,B3:pineDark,rafter:pine,purlin:pine,slat:pine,slat2:pine,slatrail:pineDark,fcframe:pine,stepframe:pine,
       sheet:poly,zinc:corr,swall:corr,sroof:std({color:0xf1f2f0,roughness:0.5,metalness:0.2}),groof:corr,gwall:corrG,gpoly:std({color:0xdce8ea,transparent:true,opacity:0.5,roughness:0.3}),
       footing:conc,slab:conc,gravel:conc,paver:sand,chain:std({color:0xa8643a,roughness:0.35,metalness:0.8}),creek:pbr('gravel_stones_diff','gravel_stones_nor',0.6,0xd9c8a8,0.9),blue:gravel,lane:lane,ply:ply,rock:sand,rock2:sand,
       fence:newFence,fencetop:topper,gatetop:topper,pgate:newFence,fencepost:pineDark,gate:newFence,fencegrey:oldFence,fencegreypost:std({color:0x7c7a74,roughness:0.95}),
       anchor:galv,steel:steelDark,gutter:galv,planter:galv,pool:std({color:0xa7a69f,roughness:0.95}),ppad:std({color:0xcfc6b3,roughness:1}),water:std({color:0x3d8e9c,roughness:0.08,metalness:0.1,transparent:true,opacity:0.85}),firepit:steelDark,ikea:ikea,ikdoor:std({color:0x4a5054,roughness:0.6}),ikss:ss,ikburn:std({color:0x15181a,roughness:0.6}),ckglass:std({color:0x101214,roughness:0.15,metalness:0.2}),ckgrate:std({color:0x1c1d1f,roughness:0.7}),ckknob:ss,ss:ss,ssb:ss,ssleg:ss,
-      glass:glass,appdoor:glass,door:door,gdoor:std({color:0x8d7748,roughness:0.7}),floor:pine,appl:white,table:hardwood,tleg:steelDark,boundary:std({color:0xc2500f,roughness:0.8}),lattice:lattice,
+      glass:glass,appdoor:glass,door:door,gdoor:std({color:0xdce8ea,transparent:true,opacity:0.5,roughness:0.3,side:THREE.DoubleSide}),iply:IP,ipart:IP,ibarn:IP,gply:IP,gceil:IP,gfloor:(function(){var m=std({color:0xd7a968,roughness:0.3,normalMap:tex('plywood_nor')});m.userData.tile=1.2;return m})(),icork:std({color:0x7b4e31,roughness:0.3}),iglass:std({color:0xcfe6ee,transparent:true,opacity:0.3,roughness:0.1,side:THREE.DoubleSide,depthWrite:false}),itvs:std({color:0x2c4a66,roughness:0.15}),imirror:std({color:0xb9c7cc,roughness:0.08,metalness:0.3}),floor:pine,appl:white,table:hardwood,tleg:steelDark,boundary:std({color:0xc2500f,roughness:0.8}),lattice:lattice,
       szinc:std({color:0xe8eef0,roughness:0.42,metalness:0.3,side:THREE.DoubleSide}),sskin:std({color:0xcfd4d3,roughness:0.45,metalness:0.3,side:THREE.DoubleSide}),ssoff:std({color:0xf4f4f1,roughness:0.5,side:THREE.DoubleSide}),
       sframe:std({color:0x6a4426,roughness:0.6,side:THREE.DoubleSide}),sglass:std({color:0x1a2228,roughness:0.1,metalness:0.4,side:THREE.DoubleSide}),sflash:std({color:0xbfc5c7,roughness:0.4,metalness:0.6,side:THREE.DoubleSide}),
       trailer:std({color:0xb5babc,roughness:0.5,metalness:0.35,side:THREE.DoubleSide}),sblack:std({color:0x1c1d1e,roughness:0.6}),sskirt:pineDark,gframe:pineDark,kbrace:pine,kpack:pineDark,stirrup:galv,stud:pine,sash:std({color:0xc79e62,roughness:0.75}),stay:galv,fscreen:std({color:0x2a2a2a,transparent:true,opacity:0.28,roughness:0.9,side:THREE.DoubleSide,depthWrite:false}),scrframe:std({color:0xd9b47a,roughness:0.7}),winder:std({color:0x222222,roughness:0.5}),sill:std({color:0x8a5a3a,roughness:0.6}),rim:pineDark,fcwall:std({color:0xb9b8b1,roughness:0.85,side:THREE.DoubleSide}),twin:std({color:0xf2f2ee,transparent:true,opacity:0.9,roughness:0.35,side:THREE.DoubleSide,depthWrite:false}),flash:std({color:0xc8cdd0,roughness:0.4,metalness:0.4}),alshield:std({color:0xd3d8da,roughness:0.3,metalness:0.55,side:THREE.DoubleSide}),alspacer:galv};
@@ -109,10 +110,13 @@
   var FIT={pool:1,water:1,ppad:1,slatrail:1,firepit:1,lounge:1,formply:1,walnut:1,fvent:1,ssf:1,ssd:1,ikea:1,ikdoor:1,ikss:1,ikburn:1,ckglass:1,ckgrate:1,ckknob:1,ssb:1,ssleg:1,slat2:1,fc:1,fcframe:1,ply:1,ktop:1,ss:1,burner:1,appl:1,appdoor:1,table:1,tleg:1}, PER={person:1,personh:1,sitter:1,sitterc:1};
   var GRD={blue:1,lane:1};
   var CTX={lattice:1,szinc:1,sskin:1,ssoff:1,sframe:1,sglass:1,sflash:1,trailer:1,sblack:1,sskirt:1,gframe:1,pgate:1,gatetop:1,fencegrey:1,fencegreypost:1,gate:1,boundary:1,planter:1,rock2:1,swall:1,sroof:1,glass:1,door:1,steel:1,floor:1,gwall:1,gpoly:1,groof:1,gdoor:1,slab:1,gutter:1,fence:1,fencetop:1};
-  var groups={sheet:[],deck:[],ctx:[],ground:[],slat:[],fit:[],person:[],plant:[],unb:[]}, pickable=[];
+  var INS={icork:1,ibfloor:1,iply:1,ibath:1,ipart:1,ired:1,ibarn:1,iglass:1,iwhite:1,iss:1,issd:1,ibed:1,ibedd:1,itimber:1,idark:1,ifridge:1,imirror:1,iceil:1,gfloor:1,gply:1,gceil:1,gtruss:1,itv:1,itvs:1,ibox:1,isofa:1,irug:1,iplant:1,ilight:1};
+  var ROOF={sskin:1,ssoff:1,groof:1,gutter:1,iceil:1,gceil:1,gtruss:1}, CUTS={szinc:1,sframe:1,sglass:1,sflash:1,sblack:1,iply:1,ibath:1,ipart:1,ired:1,ibarn:1,iglass:1}, CUTG={gwall:1,gpoly:1,gframe:1,gdoor:1,gply:1}, cutS=[], cutG=[];
+  var groups={sheet:[],deck:[],ctx:[],ground:[],slat:[],fit:[],person:[],plant:[],unb:[],roof:[]}, pickable=[];
   var NOSHADOW={sheet:1,gpoly:1,boundary:1,blue:1,lane:1};
   function add(o,g,kind){scene.add(o); o.userData.g=g; if({pool:1,water:1,ppad:1,chain:1,creek:1,planter:1,sitter:1,sitterc:1}[g])groups.unb.push(o);
-    o.traverse(function(c){if(c.isMesh){c.castShadow=!NOSHADOW[g];c.receiveShadow=true;c.userData.g=g;if(LAB[g]||kind)pickable.push(c)}});
+    o.traverse(function(c){if(c.isMesh){c.castShadow=!NOSHADOW[g];c.receiveShadow=true;c.userData.g=g;if(CUTS[g])cutS.push(c);if(CUTG[g])cutG.push(c);if(LAB[g]||kind)pickable.push(c)}});
+    if(ROOF[g])groups.roof.push(o); if(INS[g])groups.ctx.push(o);
     if(kind==='plant'){groups.plant.push(o);return}
     if(g==='sheet'||g==='zinc')groups.sheet.push(o); if(g==='deck'||g==='stepdeck')groups.deck.push(o); if(FIT[g])groups.fit.push(o); if(PER[g])groups.person.push(o);
     if(g==='slat'){groups.slat.push(o);o.visible=false} if(CTX[g])groups.ctx.push(o); if(GRD[g])groups.ground.push(o)}
@@ -287,6 +291,14 @@
   ['sheet','deck','ctx','ground','slat','fit','person','plant'].forEach(function(k){bind('t-'+k,k)});
   (function(){var el=document.getElementById('t-built');if(!el)return;el.addEventListener('change',function(){var on=!el.checked;
     ['fit','plant','unb'].forEach(function(k){groups[k].forEach(function(o){o.visible=on})});['t-fit','t-plant'].forEach(function(id){var c=document.getElementById(id);if(c)c.checked=on});draw()})})();
+  /* see inside: lift the roofs off the tiny home and shed and cut their walls down so the rooms can be read from above */
+  (function(){var el=document.getElementById('t-inside');if(!el)return;renderer.localClippingEnabled=true;
+    var PS=new THREE.Plane(new THREE.Vector3(0,-1,0),2.25),PG=new THREE.Plane(new THREE.Vector3(0,-1,0),1.9),cc={};
+    function clip(list,pl,on){list.forEach(function(c){if(on){var m0=c.userData.m0||(c.userData.m0=c.material),k=m0.uuid+(pl===PS?'s':'g');if(!cc[k]){cc[k]=m0.clone();cc[k].clippingPlanes=[pl];cc[k].clipShadows=true;cc[k].side=THREE.DoubleSide}c.material=cc[k]}else if(c.userData.m0)c.material=c.userData.m0})}
+    function apply(){var on=el.checked,cx=document.getElementById('t-ctx'),sh=document.getElementById('t-sheet'),vis=!cx||cx.checked;
+      groups.roof.forEach(function(o){o.visible=vis&&!on});clip(cutS,PS,on);clip(cutG,PG,on);
+      if(sh&&sh.checked===on){sh.checked=!on;groups.sheet.forEach(function(o){o.visible=!on})}draw()}
+    el.addEventListener('change',apply);var cx=document.getElementById('t-ctx');if(cx)cx.addEventListener('change',function(){if(el.checked)groups.roof.forEach(function(o){o.visible=false});draw()});window.__inside=function(on){el.checked=!!on;apply()}})();
   /* real summer sun for Mullumbimby, mid-December (AEDT). Site north = -Y in model coordinates, east = +X (lane). */
   var SUN={7:[109,15],9:[97,40],12:[62,79],15:[272,58],17:[259,32]};
   window.__sun=function(h){var a=SUN[h];if(!a)return;var az=a[0]*Math.PI/180,al=a[1]*Math.PI/180,r=22,tx=3.5,tz=2.5;
